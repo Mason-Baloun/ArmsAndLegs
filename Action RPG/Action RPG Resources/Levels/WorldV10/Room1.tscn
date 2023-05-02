@@ -1,0 +1,30 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Action RPG/Action RPG Resources/World/TileMaps/TileMapDoorsPaintings.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Action RPG/Action RPG Resources/World/TileMaps/TileMapProps.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Action RPG/Action RPG Resources/World/TileMaps/TileMapWalls.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Action RPG/Action RPG Resources/World/TileMaps/TileMapFloors.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Action RPG/Action RPG Resources/Player/PlayerV7/PlayerV7.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Door.tscn" type="PackedScene" id=6]
+
+[node name="Node2D" type="Node2D"]
+position = Vector2( 20, 20 )
+
+[node name="TileMapDoorsPaintings" parent="." instance=ExtResource( 1 )]
+
+[node name="TileMapFloors" parent="." instance=ExtResource( 4 )]
+tile_data = PoolIntArray( 65533, 27, 3, 65534, 27, 3, 65535, 27, 3, 0, 27, 3, 1, 27, 3, 2, 27, 3, 3, 27, 3, 4, 27, 3, 5, 27, 3, 6, 27, 3, 7, 27, 3, 8, 27, 3, 9, 27, 3, 10, 27, 3, 131069, 27, 1, 131070, 27, 1, 131071, 27, 1, 65536, 27, 1, 65537, 27, 1, 65538, 27, 1, 65539, 27, 1, 65540, 27, 1, 65541, 27, 1, 65542, 27, 1, 65543, 27, 1, 65544, 27, 1, 65545, 27, 1, 65546, 27, 1, 196605, 27, 3, 196606, 27, 3, 196607, 27, 3, 131072, 27, 3, 131073, 27, 3, 131074, 27, 3, 131075, 27, 3, 131076, 27, 3, 131077, 27, 3, 131078, 27, 3, 131079, 27, 3, 131080, 27, 3, 131081, 27, 3, 131082, 27, 3, 262141, 27, 1, 262142, 27, 1, 262143, 27, 1, 196608, 27, 1, 196609, 27, 1, 196610, 27, 1, 196611, 27, 1, 196612, 27, 1, 196613, 27, 1, 196614, 27, 1, 196615, 27, 1, 196616, 27, 1, 196617, 27, 1, 196618, 27, 1, 327677, 27, 3, 327678, 27, 3, 327679, 27, 3, 262144, 27, 3, 262145, 27, 3, 262146, 27, 3, 262147, 27, 3, 262148, 27, 3, 262149, 27, 3, 262150, 27, 3, 262151, 27, 3, 262152, 27, 3, 262153, 27, 3, 262154, 27, 3, 393213, 27, 1, 393214, 27, 1, 393215, 27, 1, 327680, 27, 1, 327681, 27, 1, 327682, 27, 1, 327683, 27, 1, 327684, 27, 1, 327685, 27, 1, 327686, 27, 1, 327687, 27, 1, 327688, 27, 1, 327689, 27, 1, 327690, 27, 1 )
+
+[node name="TileMapWalls" parent="." instance=ExtResource( 3 )]
+tile_data = PoolIntArray( -196614, 30, 0, -196612, 30, 0, -196610, 30, 0, -262144, 30, 0, -262142, 30, 0, -262140, 30, 0, -262138, 30, 0, -262136, 30, 0, -262134, 30, 0, -262132, 30, 0, -262130, 30, 0, -262128, 30, 0, -262126, 30, 0, -262124, 30, 0 )
+
+[node name="TileMapProps" parent="." instance=ExtResource( 2 )]
+tile_data = PoolIntArray( -65533, 0, 65545, -65532, 0, 65545, -65525, 0, 131075, -65524, 0, 3, -65522, 0, 3, -65520, 0, 65541, -65518, 0, 65545 )
+
+[node name="Door" parent="." instance=ExtResource( 6 )]
+position = Vector2( 56, -11 )
+newRoomDirectory = "res://Action RPG/Action RPG Resources/Levels/WorldV10/Room2.tscn"
+newPlayerSpawnLocation = Vector2( 56, 101 )
+
+[node name="PlayerV7" parent="." instance=ExtResource( 5 )]
+position = Vector2( 56, 85 )

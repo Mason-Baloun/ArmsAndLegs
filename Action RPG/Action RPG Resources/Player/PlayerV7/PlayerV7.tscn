@@ -1,6 +1,6 @@
 [gd_scene load_steps=42 format=2]
 
-[ext_resource path="res://Action RPG/Action RPG Resources/Player/PlayerV6/PlayerV6.gd" type="Script" id=1]
+[ext_resource path="res://Action RPG/Action RPG Resources/Player/PlayerV7/PlayerV7.gd" type="Script" id=1]
 [ext_resource path="res://Action RPG/Action RPG Resources/Player/PlayerV6/EXAMPLE.png" type="Texture" id=2]
 [ext_resource path="res://Action RPG/Action RPG Resources/Player/PlayerV6/Prototype_Idles_Larger_SpriteSheet.png" type="Texture" id=3]
 [ext_resource path="res://Action RPG/Action RPG Resources/World/ArmsandLegsBackgroundSpritesheet.png" type="Texture" id=4]
@@ -294,6 +294,22 @@ start_node = "Idle"
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=23]
 
+[sub_resource type="AtlasTexture" id=43]
+atlas = ExtResource( 5 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=44]
+atlas = ExtResource( 5 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=45]
+animations = [ {
+"frames": [ SubResource( 43 ), SubResource( 44 ) ],
+"loop": true,
+"name": "default",
+"speed": 1.5
+} ]
+
 [sub_resource type="AtlasTexture" id=39]
 atlas = ExtResource( 4 )
 region = Rect2( 192, 7, 16, 25 )
@@ -318,23 +334,7 @@ animations = [ {
 "speed": 3.0
 } ]
 
-[sub_resource type="AtlasTexture" id=43]
-atlas = ExtResource( 5 )
-region = Rect2( 0, 0, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=44]
-atlas = ExtResource( 5 )
-region = Rect2( 16, 0, 16, 16 )
-
-[sub_resource type="SpriteFrames" id=45]
-animations = [ {
-"frames": [ SubResource( 43 ), SubResource( 44 ) ],
-"loop": true,
-"name": "default",
-"speed": 1.5
-} ]
-
-[node name="PlayerV6" type="KinematicBody2D"]
+[node name="PlayerV7" type="KinematicBody2D"]
 collision_layer = 3
 collision_mask = 33
 script = ExtResource( 1 )
@@ -375,22 +375,26 @@ parameters/playback = SubResource( 23 )
 parameters/Idle/blend_position = Vector2( 0, 0 )
 parameters/Run/blend_position = Vector2( -0.00633913, 1.36552 )
 
-[node name="Sprite3" type="Sprite" parent="."]
+[node name="KeyPrompt" type="Node2D" parent="."]
+visible = false
+
+[node name="Sprite3" type="Sprite" parent="KeyPrompt"]
 position = Vector2( 15, -9 )
 scale = Vector2( 0.02797, 0.02797 )
 texture = ExtResource( 7 )
-
-[node name="KeyPrompt" type="Node2D" parent="."]
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="KeyPrompt"]
-position = Vector2( 13, -9 )
-scale = Vector2( 0.1875, 0.1875 )
-frames = SubResource( 38 )
-frame = 3
-playing = true
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="KeyPrompt"]
 position = Vector2( 17, -9 )
 scale = Vector2( 0.25, 0.25 )
 frames = SubResource( 45 )
 playing = true
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="KeyPrompt"]
+position = Vector2( 13, -9 )
+scale = Vector2( 0.1875, 0.1875 )
+frames = SubResource( 38 )
+frame = 1
+playing = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true

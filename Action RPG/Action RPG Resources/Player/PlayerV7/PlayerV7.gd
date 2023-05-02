@@ -17,16 +17,21 @@ enum{
 	ATTACK
 }
 
+# Get a reference to the GlobalScript singleton
+onready var global_script = get_node("/root/GlobalScript")
+
+
 onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get("parameters/playback")
 
 onready var caneHitbox = $JointV2/Forearm/Cane
 
-
-
-
 func _ready():
+	
+	if global_script.validateNewSpawn == true:
+		playerSpawn()
+
 	#SWORD HITBOX SCRIPT FOR BAT ENEMIES
 	var knockback_vector = Vector2.ZERO	
 	
@@ -38,8 +43,16 @@ func _ready():
 	
 	# Start playing the "Rolldown" animation
 	#animation_player.play("Rolldown")
+	
+	# Set hint to invisible
+	$KeyPrompt.visible = false
 
-
+func playerSpawn():
+	# SET PLAYER TO DOOR SPAWN WHEN LOADED.
+	print(position)
+	position = global_script.newPlayerLocation
+	global_script.validateNewSpawn = false
+	print(position)
 
 func _physics_process(delta):
 	match state:
@@ -49,7 +62,14 @@ func _physics_process(delta):
 			pass
 		ATTACK:
 			attack_state()
+	hintStatusChange()
 
+func hintStatusChange():
+	if global_script.showHint == true:
+		$KeyPrompt.visible = true
+	if global_script.showHint == false:
+		$KeyPrompt.visible = false
+		
 
 func move_state():
 	
@@ -81,4 +101,5 @@ func move_state():
 
 func attack_state():
 	animationPlayer.play("RollDown")
-	
+
+

@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Action RPG/Action RPG Resources/World/TileMaps/TileMapDoorsPaintings.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Action RPG/Action RPG Resources/World/TileMaps/TileMapProps.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Action RPG/Action RPG Resources/World/TileMaps/TileMapWalls.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Action RPG/Action RPG Resources/World/TileMaps/TileMapFloors.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Action RPG/Action RPG Resources/Player/PlayerV7/PlayerV7.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Door.tscn" type="PackedScene" id=6]
+[ext_resource path="res://DoorV2.tscn" type="PackedScene" id=7]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TileMapDoorsPaintings" parent="." instance=ExtResource( 1 )]
+
+[node name="TileMapFloors" parent="." instance=ExtResource( 4 )]
+tile_data = PoolIntArray( 131072, 27, 3, 131073, 27, 3, 131074, 27, 3, 131075, 27, 3, 131076, 27, 3, 131077, 27, 3, 131078, 27, 3, 262139, 27, 1, 262140, 27, 1, 262141, 27, 1, 262142, 27, 1, 262143, 27, 3, 196608, 27, 3, 196609, 27, 1, 196610, 27, 1, 196611, 27, 1, 196612, 27, 1, 196613, 27, 1, 196614, 27, 3, 327675, 27, 1, 327676, 27, 1, 327677, 27, 1, 327678, 27, 1, 327679, 27, 3, 262144, 27, 3, 262145, 27, 1, 262146, 27, 1, 262147, 27, 1, 262148, 27, 1, 262149, 27, 1, 262150, 27, 1, 262151, 27, 3, 262152, 27, 3, 262153, 27, 1, 262154, 27, 1, 262155, 27, 1, 262156, 27, 1, 262157, 27, 1, 262158, 27, 1, 393211, 27, 1, 393212, 27, 1, 393213, 27, 1, 393214, 27, 1, 393215, 27, 3, 327680, 27, 3, 327681, 27, 3, 327682, 27, 3, 327683, 27, 3, 327684, 27, 3, 327685, 27, 3, 327686, 27, 3, 327687, 27, 3, 327688, 27, 3, 327689, 27, 1, 327690, 27, 1, 327691, 27, 1, 327692, 27, 1, 327693, 27, 1, 327694, 27, 1 )
+
+[node name="TileMapProps" parent="." instance=ExtResource( 2 )]
+
+[node name="TileMapWalls" parent="." instance=ExtResource( 3 )]
+tile_data = PoolIntArray( 0, 36, 0, 2, 37, 0, 4, 37, 0, 6, 37, 0, 8, 37, 0, 10, 54, 0, 196598, 30, 0, 196600, 30, 0, 196602, 30, 0, 196604, 30, 0, 196606, 31, 0, 262158, 35, 0, 262160, 33, 0, 262162, 33, 0, 262164, 33, 0, 262166, 33, 0, 262168, 33, 0, 262170, 33, 0, 262172, 32, 0 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 56, 64 )
+
+[node name="Door" parent="." instance=ExtResource( 6 )]
+position = Vector2( 56, 21 )
+newRoomDirectory = "res://Action RPG/Action RPG Resources/Levels/WorldV10/Room3.tscn"
+
+[node name="DoorV2 1" parent="." instance=ExtResource( 7 )]
+position = Vector2( 81, 102 )
+
+[node name="DoorV2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 81, 21 )
+
+[node name="Door2" parent="." instance=ExtResource( 6 )]
+position = Vector2( 56, 101 )
+newRoomDirectory = "res://Action RPG/Action RPG Resources/Levels/WorldV10/Room1.tscn"
+newPlayerSpawnLocation = Vector2( 50, 0 )
+
+[node name="PlayerV7" parent="." instance=ExtResource( 5 )]
+position = Vector2( 56, 64 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PlayerV7"]
+remote_path = NodePath("../../Camera2D")
