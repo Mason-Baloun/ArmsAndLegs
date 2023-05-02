@@ -39,12 +39,17 @@ window/stretch/aspect="keep"
 
 enabled=PoolStringArray(  )
 
+[gdnative]
+
+singletons=[  ]
+
 [global]
 
 display=false
 color=false
 delta=false
 location=false
+font=false
 
 [importer_defaults]
 
